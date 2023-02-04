@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.bean.ReferralBean;
 import com.service.ReferralServiceImpl;
 
 import java.util.HashMap;
@@ -7,12 +8,12 @@ import java.util.Map;
 
 public class ReferralDaoImpl implements ReferralDao{
 
-    public static HashMap<Integer, ReferralServiceImpl> referralData = new HashMap<>();
+    public static HashMap<Integer, ReferralBean> referralData = new HashMap<>();
 
     public void dummyData() {
-        referralData.put(101, new ReferralServiceImpl(101, "Sumit", 1000));
-        referralData.put(102, new ReferralServiceImpl(102, "Abhishom", 2000));
-        referralData.put(103, new ReferralServiceImpl(103, "Utkarsh", 3000));
+        referralData.put(101, new ReferralBean(101, "Sumit", 1000));
+        referralData.put(102, new ReferralBean(102, "Abhishom", 2000));
+        referralData.put(103, new ReferralBean(103, "Utkarsh", 3000));
     }
 
     public void displayReferral() {
@@ -22,7 +23,7 @@ public class ReferralDaoImpl implements ReferralDao{
         }
     }
 
-    public void addReferral(ReferralServiceImpl referralImp) {
+    public void addReferral(ReferralBean referralImp) {
 
         int key = referralImp.getReferral_id();
 
@@ -42,13 +43,13 @@ public class ReferralDaoImpl implements ReferralDao{
 
     public void updateData(int refid) {
         int referralPoints = 1000;
-        for(Map.Entry<Integer, ReferralServiceImpl> referralEntry : referralData.entrySet()) {
+        for(Map.Entry<Integer, ReferralBean> referralEntry : referralData.entrySet()) {
 
             int currRefId = referralEntry.getKey();
 
             if (currRefId == refid) {
 
-                ReferralServiceImpl referral = referralEntry.getValue();
+                ReferralBean referral = referralEntry.getValue();
 
                 referral.setReferral_points(referral.getReferral_points() + referralPoints);
             }

@@ -1,7 +1,6 @@
 package com.tester;
 
-import com.dao.ReferralDao;
-import com.dao.ReferralDaoImpl;
+import com.bean.ReferralBean;
 import com.service.ReferralServiceImpl;
 
 import java.util.Scanner;
@@ -29,12 +28,12 @@ public class TestReferral {
                     referral.displayReferral();
                     break;
                 case 2:
-                    ReferralServiceImpl referral1 = new ReferralServiceImpl(103,"Abhi",4000);
-                    referral.addReferral(referral1);
+                    ReferralBean referralBean = new ReferralBean(103,"Abhi",4000);
+                    referral.addReferral(referralBean);
                     referral.displayReferral();
                     break;
                 case 3:
-                    referral.updateData(103);
+                    referral.updateReferral(103);
                     break;
                 case 4:
                     referral.deleteReferral(105);
